@@ -1,0 +1,34 @@
+{
+  "name": "@mxc/app-tasks",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "drizzle-orm": "^0.38.0",
+    "@mxc/types": "workspace:*",
+    "@mxc/db": "workspace:*",
+    "@mxc/auth": "workspace:*",
+    "@mxc/sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0",
+    "@mxc/tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@mxc/sdk": ">=0.0.1",
+    "@mxc/types": ">=0.0.1"
+  }
+}
