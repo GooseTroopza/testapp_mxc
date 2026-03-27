@@ -89,12 +89,6 @@ export function createTasksRoutes(ctx: AppContext) {
     const assigneeIdFilter = c.req.query("assigneeId");
     const assigneeMe = c.req.query("assigneeMe") === "true";
 
-    let query = db
-      .select()
-      .from(tasks)
-      .where(eq(tasks.tenantId, session.tenantId))
-      .$dynamic();
-
     // Apply filters
     const conditions = [eq(tasks.tenantId, session.tenantId)];
 
