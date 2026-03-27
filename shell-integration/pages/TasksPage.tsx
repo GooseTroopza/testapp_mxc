@@ -8,10 +8,10 @@
  *   <Route path="/tasks" element={<TasksPage />} />
  */
 
-import React, { useState, type FormEvent } from "react";
+import React, { useState, useEffect, type FormEvent } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   useTasks,
-  useTasksSSE,
   useEmployees,
   useTaskStats,
   type Task,
@@ -324,7 +324,7 @@ export function TasksPage() {
   // Connect to SSE for real-time updates
   // Show a brief "live" indicator when updates arrive
   const queryClient = useQueryClient();
-  React.useEffect(() => {
+  useEffect(() => {
     const es = new EventSource("/api/tasks/events", { withCredentials: true });
     es.onmessage = (event) => {
       try {
@@ -502,5 +502,3 @@ export function TasksPage() {
   );
 }
 
-// Need to import useQueryClient at the top — adding it here since it's used inline
-import { useQueryClient } from "@tanstack/react-query";

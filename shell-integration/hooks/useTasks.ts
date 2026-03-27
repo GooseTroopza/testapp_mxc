@@ -4,7 +4,8 @@
  * Copy this file to:  apps/shell/src/client/hooks/useTasks.ts
  */
 
-import { useQuery, useMutation, useQueryClient, useEffect } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
